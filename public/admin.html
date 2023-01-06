@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema</title>
+    <link rel="stylesheet" href="./style.css" >
+    <script type="module" src="./fetcher.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.2/cash.min.js"></script>
+</head>
+<body>
+    <header id="header">
+        <img id="logo" src="./acap_illustrator.svg"/>
+        <div id="allOS"></div>
+    </header>
+    <div id="containerCad">
+        <hr>
+        <h2>Cadastrar Equipamentos</h2>
+        <form id="cadastrar">
+            <!-- <input name="osEvento" type="text" value="000"> -->
+            <input name="modelo" type="text" placeholder="modelo">
+            <input name="marca" type="text" placeholder="marca">
+            <SELECT name="status" SIZE=1>
+                <OPTION value="Disponivel" selected>Disponivel</OPTION>
+                <OPTION value="Locado">Locado</OPTION>
+                <OPTION value="Defeito">Defeito</OPTION>
+                <OPTION value="Baixado">Baixado</OPTION>
+            </SELECT>
+            <input name="patrimonio" pattern="[0-9]{5}" type="text" placeholder="patrimonio">
+        </form>
+    </div>
+    <div>
+        <hr>
+        <h2>Saida Equipamento</h2>
+        <form id="login-form">
+            <input  name="os" id="os" type="text" placeholder="O.S / deposito=0">
+            <input  name="data_fim" id="data_fim" type="date" >
+            <input  name="saida" id="saida" type="text" placeholder="patrimonio">
+        </form>
+        <hr>
+
+    </div>
+<div>    
+    <div>
+        <h2>Buscar Equipamento</h2>
+        <SELECT name="opcoes" SIZE=1>
+            <OPTION value="O.S" selected>O.S
+            <OPTION value="Patrimonio">Patrimonio
+            <OPTION value="Geral">Geral  
+        </SELECT>
+        <input id="find" type="text" placeholder="O.S:000/Pat:00000" ><input type="button" value="Buscar" id="buscar">
+        <hr>
+    </div>
+    <div id="idtable">
+        <table id="table">
+            <tr>
+                <th>Patrimonio</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Status</th>
+                <th>Retorno</th>
+                <th>O.S</th>
+            </tr>
+        </table>
+    </div>
+</div>
+    <script type="module" src="./admin.js"></script>
+</body>
+</html>

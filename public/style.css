@@ -1,0 +1,74 @@
+html{
+    background: url("./5559852.jpg") ;
+    background-size:auto ;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    text-align: center;
+    align-content: center;
+}
+header img{
+    height: 100px;
+}
+header #allOS div:hover{
+    box-shadow:5px 5px 5px  rgba(127, 255, 212, 0.294);
+}
+#allOS{
+    display: flex;
+    flex-direction: row;
+}
+header #allOS div{
+    word-wrap: break-word;
+    background-color: rgba(127, 255, 212, 0.294);
+    border: 2px solid aquamarine;
+    width: 140px;
+    height: 70px;
+    border-radius: 5px;
+    margin: 5px;
+    position: relative;
+}
+input,select{
+    border:solid 2px black;
+    margin: 2px;
+    border-radius: 5px;
+}
+input[type=text],select{
+    background-color:rgba(58, 58, 58, 0.478);
+}
+input[type=submit]{
+    background-color: rgb(58, 58, 58);
+    color: azure;
+}
+#idtable{
+    padding:30px 20px;
+}
+hr{
+    color: red;
+    text-shadow: 2px 2px 5px #FF0000;
+    box-shadow: 2px 2px 5px #FF0000 ;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #9d9a9a;
+  }
+
