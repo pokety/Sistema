@@ -1,5 +1,6 @@
 const HOST="0.0.0.0"
 import fetcher from "./fetcher.js"
+import lodash from 'https://cdn.jsdelivr.net/npm/lodash@4.17.21/+esm'
 ////////////click OS
 
 async function caregarOs(){
@@ -59,15 +60,17 @@ for(let a=0;a<resg.length;a++){
     }
     
 }
-
-for(let a=0;a<newARRAY.length;a++){
+console.log(newARRAY)
+const uniqArr=lodash.uniqBy(newARRAY,"os")
+console.log(uniqArr)
+for(let a=0;a<uniqArr.length;a++){
     let div=document.createElement("div")
-    div.id=newARRAY[a].os
+    div.id=uniqArr[a].os
     div.onclick=caregarOs
     let h5=document.createElement("h5")
-    let content=`O.S:${newARRAY[a].os}\n Terminio:${newARRAY[a].termino}`
+    let content=`O.S:${uniqArr[a].os}\n Terminio:${uniqArr[a].termino}`
     h5.innerText=content
-    let offData=new Date(newARRAY[a].termino)-new Date()
+    let offData=new Date(uniqArr[a].termino)-new Date()
     offData>=1?div.style='background-color: rgba(127, 255, 212, 0.294);border: 2px solid aquamarine;':div.style='background-color: rgba(222, 10, 10, 0.294);border: 2px solid red;'
     div.append(h5)
     $('#allOS').append(div)
@@ -115,6 +118,9 @@ const saida1=document.querySelector('#saida')
 const os1=document.querySelector('#os')
 const data_fim=document.querySelector("#data_fim")
 
+//opcao deposito data fim
+os1.value=="0"?data_fim.value=null:console.log("O.S !deposito")
+
 saida.addEventListener('keydown',async(key)=>{
     if(key.keyCode==13){
         key.preventDefault
@@ -150,12 +156,15 @@ saida.addEventListener('keydown',async(key)=>{
 let find=document.querySelector('#find')
 let opcao=document.querySelector('select[name=opcoes]')
 let buscar=document.querySelector("#buscar")
+
+const table=document.querySelector('#table')
 async function run(){
     const resp=await fetch(`http://${HOST?HOST:"192.168.1.6"}:3000/api/?id=${find.value}&opcao=${opcao.value}`)
     var result=await resp.json()
 
     
-    const table=document.querySelector('#table')
+
+
 
     if(result){
         Array.isArray(result)?result=result:result=[result]

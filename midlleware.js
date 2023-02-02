@@ -1,3 +1,8 @@
+import path from 'path'
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default function auth(req,res,next){
     const user=req.body.user
     const password=req.body.password

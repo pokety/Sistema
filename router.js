@@ -1,9 +1,9 @@
 import express from "express";
 import { MongoClient } from 'mongodb'
-import auth from "./midlleware";
-import path from 'path'
+import auth from "./midlleware.js";
 import bodyParser from "body-parser";
 const urlencoded=bodyParser.urlencoded({extended:false})
+import path from 'path'
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,7 +37,7 @@ rotas.post('/api',async(req,res)=>{
     const col=db.collection("audioVisual")
 
     const resultado=JSON.parse(JSON.stringify(req.body))
-    const status=resultado.os != "deposito"?"locado":"disponivel"
+    const status=resultado.os != "0"?"locado":"disponivel"
     let data=resultado.terminio;
     const result1=await col.updateOne(
         { "patrimonio" : resultado.saida },

@@ -1,4 +1,5 @@
 const HOST="0.0.0.0"
+import lodash from 'https://cdn.jsdelivr.net/npm/lodash@4.17.21/+esm'
 ////////////click OS
 
 async function caregarOs(){
@@ -59,17 +60,20 @@ for(let a=0;a<resg.length;a++){
     
 }
 
-for(let a=0;a<newARRAY.length;a++){
+console.log(newARRAY)
+const uniqArr=lodash.uniqBy(newARRAY,"os")
+console.log(uniqArr)
+for(let a=0;a<uniqArr.length;a++){
     let div=document.createElement("div")
-    div.id=newARRAY[a].os
+    div.id=uniqArr[a].os
     div.onclick=caregarOs
     let h5=document.createElement("h5")
-    let content=`O.S:${newARRAY[a].os}\n Terminio:${newARRAY[a].termino}`
+    let content=`O.S:${uniqArr[a].os}\n Terminio:${uniqArr[a].termino}`
     h5.innerText=content
-    let offData=new Date(newARRAY[a].termino)-new Date()
+    let offData=new Date(uniqArr[a].termino)-new Date()
     offData>=1?div.style='background-color: rgba(127, 255, 212, 0.294);border: 2px solid aquamarine;':div.style='background-color: rgba(222, 10, 10, 0.294);border: 2px solid red;'
     div.append(h5)
-    $('#header').append(div)
+    $('#allOS').append(div)
 }
 
 //////// saida de equipamento
